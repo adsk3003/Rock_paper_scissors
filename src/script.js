@@ -13,36 +13,72 @@ function computer(){
 
 let playerselection;
 
+document.getElementById('rock').onclick = function() {Rock_clicked()};
+document.getElementById('paper').onclick = function() {Paper_clicked()};
+document.getElementById('scissors').onclick = function() {Scissors_clicked()};
+
+function Rock_clicked(){
+    playerselection = 'rock';
+    playRound();
+}
+function Paper_clicked(){
+    playerselection = 'paper';
+    playRound();
+}
+function Scissors_clicked(){
+    playerselection = 'scissors';
+    playRound();
+}
+
+function inc_score_user(){
+    var current_score = 0 || document.getElementById('score_user').innerText;
+    current_score = parseInt(current_score, 10);
+    document.getElementById('score_user').innerText = `${current_score+1}`;
+}
+
+function inc_score_comp(){
+    var current_score = 0 || document.getElementById('score_comp').innerText;
+    current_score = parseInt(current_score, 10);
+    document.getElementById('score_comp').innerText = `${current_score+1}`;
+}
+
 function playRound(){
     let computerselection = computer();
-    playerselection = prompt("rock, paper or scissors ?");
+    //playerselection = prompt("rock, paper or scissors ?");
+    //playerselection = playerselection.toLowerCase();
     if(playerselection == computerselection){
         console.log('draw');
-        alert('draw');
+        document.getElementById('result').innerHTML = "It's a TIE!";
     }
     else if(playerselection == 'paper' && computerselection == 'rock'){
         console.log('You Win!');
-        alert('You Win!');
+        document.getElementById('result').innerHTML = 'You Win!';
+        inc_score_user();
     }
     else if(playerselection == 'paper' && computerselection == 'scissors'){
         console.log('You lose!');
-        alert('You lose!');
+        document.getElementById('result').innerHTML = 'You lose!';
+        inc_score_comp();
     }
     else if(playerselection == 'rock' && computerselection == 'scissors'){
         console.log('You Win!');
-        alert('You Win!');
+        document.getElementById('result').innerHTML = 'You Win!';
+        inc_score_user();
     }
     else if(playerselection == 'rock' && computerselection == 'paper'){
         console.log('You lose!');
-        alert('You lose!');
+        document.getElementById('result').innerHTML = 'You lose!';
+        inc_score_comp();
     }
     else if(playerselection == 'scissors' && computerselection == 'rock'){
         console.log('You lose!');
-        alert('You lose!');
+        document.getElementById('result').innerHTML = 'You lose!';
+        inc_score_comp();
     }
     else if(playerselection == 'scissors' && computerselection == 'paper'){
         console.log('You Win!');
-        alert('You Win!');
+        document.getElementById('result').innerHTML = 'You Win!';
+        inc_score_user();
     }
     else{
         console.log("Invalid Input");
@@ -52,4 +88,3 @@ function playRound(){
     console.log(`Computer chose ${computerselection}`);
     console.log(`You chose ${playerselection}`);
 }
-playRound();
