@@ -16,24 +16,39 @@ let playerselection;
 function playRound(){
     let computerselection = computer();
     playerselection = prompt("rock, paper or scissors ?");
-    if(playerselection == 'rock' && computerselection == 'rock')
+    if(playerselection == computerselection){
         console.log('draw');
-    else if(playerselection == 'paper' && computerselection == 'paper')
-        console.log('draw');
-    else if(playerselection == 'scissors' && computerselection == 'scissors')
-        console.log('draw');
-    else if(playerselection == 'paper' && computerselection == 'rock')
+        alert('draw');
+    }
+    else if(playerselection == 'paper' && computerselection == 'rock'){
         console.log('You Win!');
-    else if(playerselection == 'paper' && computerselection == 'scissors')
+        alert('You Win!');
+    }
+    else if(playerselection == 'paper' && computerselection == 'scissors'){
         console.log('You lose!');
-    else if(playerselection == 'rock' && computerselection == 'scissors')
+        alert('You lose!');
+    }
+    else if(playerselection == 'rock' && computerselection == 'scissors'){
         console.log('You Win!');
-    else if(playerselection == 'rock' && computerselection == 'paper')
+        alert('You Win!');
+    }
+    else if(playerselection == 'rock' && computerselection == 'paper'){
         console.log('You lose!');
-    else if(playerselection == 'scissors' && computerselection == 'rock')
+        alert('You lose!');
+    }
+    else if(playerselection == 'scissors' && computerselection == 'rock'){
         console.log('You lose!');
-    else if(playerselection == 'scissors' && computerselection == 'paper')
+        alert('You lose!');
+    }
+    else if(playerselection == 'scissors' && computerselection == 'paper'){
         console.log('You Win!');
+        alert('You Win!');
+    }
+    else{
+        console.log("Invalid Input");
+        alert("Invalid Input");
+        return;
+    }
     console.log(`Computer chose ${computerselection}`);
     console.log(`You chose ${playerselection}`);
 }
