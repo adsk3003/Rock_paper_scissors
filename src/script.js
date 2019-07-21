@@ -14,22 +14,31 @@ function computer(){
 let playerselection;
 let computerselection;
 
-document.getElementById('rock').onclick = function() {Rock_clicked()};
-document.getElementById('paper').onclick = function() {Paper_clicked()};
-document.getElementById('scissors').onclick = function() {Scissors_clicked()};
+//document.getElementById('rock').onclick = function() {Rock_clicked()};
+//document.getElementById('paper').onclick = function() {Paper_clicked()};
+//document.getElementById('scissors').onclick = function() {Scissors_clicked()};
 
-function Rock_clicked(){
-    playerselection = 'rock';
-    playRound();
-}
-function Paper_clicked(){
-    playerselection = 'paper';
-    playRound();
-}
-function Scissors_clicked(){
-    playerselection = 'scissors';
-    playRound();
-}
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playerselection = button.id;
+        // setTimeout(playRound(), 10000);
+        playRound();
+    });
+});
+
+// function Rock_clicked(){
+//     playerselection = 'rock';
+//     playRound();
+// }
+// function Paper_clicked(){
+//     playerselection = 'paper';
+//     playRound();
+// }
+// function Scissors_clicked(){
+//     playerselection = 'scissors';
+//     playRound();
+// }
 
 function inc_score_user(){
     var current_score = 0 || document.getElementById('score_user').innerText;
