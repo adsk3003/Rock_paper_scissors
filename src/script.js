@@ -12,6 +12,7 @@ function computer(){
 }
 
 let playerselection;
+let computerselection;
 
 document.getElementById('rock').onclick = function() {Rock_clicked()};
 document.getElementById('paper').onclick = function() {Paper_clicked()};
@@ -43,7 +44,8 @@ function inc_score_comp(){
 }
 
 function playRound(){
-    let computerselection = computer();
+    computerselection = computer();
+    document.getElementById('computer_chose').innerText = computerselection;
     //playerselection = prompt("rock, paper or scissors ?");
     //playerselection = playerselection.toLowerCase();
     if(playerselection == computerselection){

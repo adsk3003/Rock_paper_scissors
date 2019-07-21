@@ -1,0 +1,82 @@
+body{
+    background-color: black;
+}
+h1{
+    text-align: center;
+    color: firebrick;
+    font-family: 'Press Start 2P' ,cursive;
+}
+h2{
+    text-align: center;
+    color: firebrick;
+    font-family: 'Press Start 2P' ,cursive;
+}
+#result{
+    text-align: center;
+    position: relative;
+    top: 80px;
+    color: firebrick;
+    font-family: 'Press Start 2P' ,cursive;
+    font-size: 30px;
+    animation-name: flash;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+img{
+    height: 125px;
+    width: 125px;
+}
+#buttons{
+    text-align: center;
+    position: relative;
+    top: 60px;
+    padding: 10px;
+}
+#score_user, #score_comp{
+    position: relative;
+    color: firebrick;
+    font-family: 'Press Start 2P' ,cursive;
+}
+#score_user{
+    position: relative;
+    left: 350px;
+    top: 12px;
+}
+#score_comp{
+    position: relative;
+    left: 350px; 
+    top: 12px;
+}
+h3{
+    color: firebrick;
+    font-family: 'Press Start 2P' ,cursive;
+}
+#user_text{
+    position: relative;
+    top: 50px;
+}
+#comp_text{
+    position: relative;
+    top: 50px;
+}
+#computer_chose{
+    color: firebrick;
+    font-family: 'Press Start 2P' ,cursive;
+    position: relative;
+    left: 1100px;
+    top: -100px;
+}
+#computer_chose_text{
+    color: firebrick;
+    font-family: 'Press Start 2P' ,cursive;
+    position: relative;
+    left: 900px;
+    top: -63px;
+}
+@keyframes flash{
+    from{color: red;}
+    to{color: blue;}
+}
