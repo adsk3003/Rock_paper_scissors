@@ -22,8 +22,54 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         playerselection = button.id;
-        // setTimeout(playRound(), 10000);
-        playRound();
+        setTimeout(function playRound(){
+            computerselection = computer();
+            document.getElementById('computer_chose').innerText = computerselection;
+            //playerselection = prompt("rock, paper or scissors ?");
+            //playerselection = playerselection.toLowerCase();
+            if(playerselection == computerselection){
+                console.log('draw');
+                document.getElementById('result').innerHTML = "It's a TIE!";
+            }
+            else if(playerselection == 'paper' && computerselection == 'rock'){
+                console.log('You Win!');
+                document.getElementById('result').innerHTML = 'You Win!';
+                inc_score_user();
+            }
+            else if(playerselection == 'paper' && computerselection == 'scissors'){
+                console.log('You lose!');
+                document.getElementById('result').innerHTML = 'You lose!';
+                inc_score_comp();
+            }
+            else if(playerselection == 'rock' && computerselection == 'scissors'){
+                console.log('You Win!');
+                document.getElementById('result').innerHTML = 'You Win!';
+                inc_score_user();
+            }
+            else if(playerselection == 'rock' && computerselection == 'paper'){
+                console.log('You lose!');
+                document.getElementById('result').innerHTML = 'You lose!';
+                inc_score_comp();
+            }
+            else if(playerselection == 'scissors' && computerselection == 'rock'){
+                console.log('You lose!');
+                document.getElementById('result').innerHTML = 'You lose!';
+                inc_score_comp();
+            }
+            else if(playerselection == 'scissors' && computerselection == 'paper'){
+                console.log('You Win!');
+                document.getElementById('result').innerHTML = 'You Win!';
+                inc_score_user();
+            }
+            else{
+                console.log("Invalid Input");
+                alert("Invalid Input");
+                return;
+            }
+            console.log(`Computer chose ${computerselection}`);
+            console.log(`You chose ${playerselection}`);
+        }, 400);
+        // playRound();
     });
 });
 
@@ -52,50 +98,50 @@ function inc_score_comp(){
     document.getElementById('score_comp').innerText = `${current_score+1}`;
 }
 
-function playRound(){
-    computerselection = computer();
-    document.getElementById('computer_chose').innerText = computerselection;
-    //playerselection = prompt("rock, paper or scissors ?");
-    //playerselection = playerselection.toLowerCase();
-    if(playerselection == computerselection){
-        console.log('draw');
-        document.getElementById('result').innerHTML = "It's a TIE!";
-    }
-    else if(playerselection == 'paper' && computerselection == 'rock'){
-        console.log('You Win!');
-        document.getElementById('result').innerHTML = 'You Win!';
-        inc_score_user();
-    }
-    else if(playerselection == 'paper' && computerselection == 'scissors'){
-        console.log('You lose!');
-        document.getElementById('result').innerHTML = 'You lose!';
-        inc_score_comp();
-    }
-    else if(playerselection == 'rock' && computerselection == 'scissors'){
-        console.log('You Win!');
-        document.getElementById('result').innerHTML = 'You Win!';
-        inc_score_user();
-    }
-    else if(playerselection == 'rock' && computerselection == 'paper'){
-        console.log('You lose!');
-        document.getElementById('result').innerHTML = 'You lose!';
-        inc_score_comp();
-    }
-    else if(playerselection == 'scissors' && computerselection == 'rock'){
-        console.log('You lose!');
-        document.getElementById('result').innerHTML = 'You lose!';
-        inc_score_comp();
-    }
-    else if(playerselection == 'scissors' && computerselection == 'paper'){
-        console.log('You Win!');
-        document.getElementById('result').innerHTML = 'You Win!';
-        inc_score_user();
-    }
-    else{
-        console.log("Invalid Input");
-        alert("Invalid Input");
-        return;
-    }
-    console.log(`Computer chose ${computerselection}`);
-    console.log(`You chose ${playerselection}`);
-}
+// function playRound(){
+//     computerselection = computer();
+//     document.getElementById('computer_chose').innerText = computerselection;
+//     //playerselection = prompt("rock, paper or scissors ?");
+//     //playerselection = playerselection.toLowerCase();
+//     if(playerselection == computerselection){
+//         console.log('draw');
+//         document.getElementById('result').innerHTML = "It's a TIE!";
+//     }
+//     else if(playerselection == 'paper' && computerselection == 'rock'){
+//         console.log('You Win!');
+//         document.getElementById('result').innerHTML = 'You Win!';
+//         inc_score_user();
+//     }
+//     else if(playerselection == 'paper' && computerselection == 'scissors'){
+//         console.log('You lose!');
+//         document.getElementById('result').innerHTML = 'You lose!';
+//         inc_score_comp();
+//     }
+//     else if(playerselection == 'rock' && computerselection == 'scissors'){
+//         console.log('You Win!');
+//         document.getElementById('result').innerHTML = 'You Win!';
+//         inc_score_user();
+//     }
+//     else if(playerselection == 'rock' && computerselection == 'paper'){
+//         console.log('You lose!');
+//         document.getElementById('result').innerHTML = 'You lose!';
+//         inc_score_comp();
+//     }
+//     else if(playerselection == 'scissors' && computerselection == 'rock'){
+//         console.log('You lose!');
+//         document.getElementById('result').innerHTML = 'You lose!';
+//         inc_score_comp();
+//     }
+//     else if(playerselection == 'scissors' && computerselection == 'paper'){
+//         console.log('You Win!');
+//         document.getElementById('result').innerHTML = 'You Win!';
+//         inc_score_user();
+//     }
+//     else{
+//         console.log("Invalid Input");
+//         alert("Invalid Input");
+//         return;
+//     }
+//     console.log(`Computer chose ${computerselection}`);
+//     console.log(`You chose ${playerselection}`);
+// }
